@@ -136,14 +136,3 @@ const navigate = useNavigateBoi();
 navigate('/dashboard');
 ```
 
-## Why Route Boi?
-
-Built as an educational project to understand the mechanics of client-side routing, Route Boi provides a simpler alternative to more complex routing libraries while maintaining core functionality. It's perfect for:
-
-- Learning how routing works in React applications
-- Small to medium-sized projects with straightforward routing needs
-- Developers who want a minimal routing solution without unnecessary features
-
-## License
-
-MIT
