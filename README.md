@@ -1,27 +1,28 @@
 # route-boi
 
-A simple routing package for React applications, inspired by React Router DOM. I built this to understand how routing works behind the scenes.
+A lightweight, intuitive routing library for React applications inspired by React Router DOM. Built from scratch to demystify the inner workings of client-side routing in React.
 
 ## Features
 
-- **Route Management**: Easily manage your routes with `RouteBoiProvider` and `RouteBoiRoutes`.
-- **Custom Navigation Hook**: Programmatically navigate between routes using `useNavigateBoi`.
-- **Dynamic Routing**: Define and manage routes dynamically with the `RouteBoiRoutes` component.
-- **Link Component**: Navigate between pages using the `RouteBoiLink` component.
+- **Simplified Route Management** - Define and organize your application routes with `RouteBoiProvider` and `RouteBoiRoutes`
+- **Programmatic Navigation** - Navigate between routes using the custom `useNavigateBoi` hook
+- **Dynamic Routing** - Handle route changes seamlessly with zero configuration
+- **Declarative Link Component** - Navigate between pages using the simple `RouteBoiLink` component
+- **Zero Dependencies** - Lightweight implementation with no external dependencies
 
 ## Installation
 
 ```bash
 npm install route-boi
+```
 
+## Quick Start
 
-Usage
-1. Setup RouteBoiProvider
-Wrap your application in RouteBoiProvider to manage routing context globally.
+### 1. Set Up the Provider
 
-jsx
-Copy
-Edit
+Wrap your application in `RouteBoiProvider` to enable routing functionality throughout your app:
+
+```jsx
 import { RouteBoiProvider } from 'route-boi';
 
 function App() {
@@ -31,44 +32,118 @@ function App() {
     </RouteBoiProvider>
   );
 }
-2. Define Routes with RouteBoiRoutes
-Define your routes using the RouteBoiRoutes component.
+```
 
-jsx
-Copy
-Edit
+### 2. Define Your Routes
+
+Create routes using the `RouteBoiRoutes` component:
+
+```jsx
 import { RouteBoiRoutes } from 'route-boi';
+import Home from './pages/Home';
+import About from './pages/About';
 
-const routes = [
-  { path: '/', component: <Home /> },
-  { path: '/about', component: <About /> },
-];
+function AppRoutes() {
+  const routes = [
+    { path: '/', component: <Home /> },
+    { path: '/about', component: <About /> },
+  ];
+  
+  return <RouteBoiRoutes routes={routes} />;
+}
+```
 
-<RouteBoiRoutes routes={routes} />;
-3. Navigation with RouteBoiLink Component
-Use the RouteBoiLink component to create navigational links.
+### 3. Create Navigation Links
 
-jsx
-Copy
-Edit
+Use the `RouteBoiLink` component for in-app navigation:
+
+```jsx
 import { RouteBoiLink } from 'route-boi';
 
-<RouteBoiLink to="/about">Go to About Page</RouteBoiLink>
-4. Programmatic Navigation with useNavigateBoi
-Use the useNavigateBoi hook to programmatically navigate between routes.
+function Navigation() {
+  return (
+    <nav>
+      <RouteBoiLink to="/">Home</RouteBoiLink>
+      <RouteBoiLink to="/about">About</RouteBoiLink>
+    </nav>
+  );
+}
+```
 
-jsx
-Copy
-Edit
+### 4. Navigate Programmatically
+
+Use the `useNavigateBoi` hook when you need to navigate within component logic:
+
+```jsx
 import { useNavigateBoi } from 'route-boi';
 
-const MyComponent = () => {
+function Dashboard() {
   const navigate = useNavigateBoi();
-
-  const goToAbout = () => {
-    navigate('/about');
+  
+  const handleLogout = () => {
+    // Perform logout operations
+    navigate('/login');
   };
-
-  return <button onClick={goToAbout}>Go to About</button>;
-};
+  
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
+}
 ```
+
+## API Reference
+
+### `RouteBoiProvider`
+
+The context provider that powers Route Boi's routing system.
+
+```jsx
+<RouteBoiProvider>
+  {/* Your application */}
+</RouteBoiProvider>
+```
+
+### `RouteBoiRoutes`
+
+Component for defining and rendering routes.
+
+```jsx
+<RouteBoiRoutes 
+  routes={[
+    { path: '/', component: <Home /> },
+    { path: '/about', component: <About /> }
+  ]} 
+/>
+```
+
+### `RouteBoiLink`
+
+Component for navigation between routes.
+
+```jsx
+<RouteBoiLink to="/about">About Us</RouteBoiLink>
+```
+
+### `useNavigateBoi`
+
+Hook for programmatic navigation.
+
+```jsx
+const navigate = useNavigateBoi();
+navigate('/dashboard');
+```
+
+## Why Route Boi?
+
+Built as an educational project to understand the mechanics of client-side routing, Route Boi provides a simpler alternative to more complex routing libraries while maintaining core functionality. It's perfect for:
+
+- Learning how routing works in React applications
+- Small to medium-sized projects with straightforward routing needs
+- Developers who want a minimal routing solution without unnecessary features
+
+## License
+
+MIT
