@@ -3,6 +3,10 @@
   "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ashwinthomas370/routeBoi.git"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
