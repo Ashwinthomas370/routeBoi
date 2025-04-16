@@ -1,7 +1,7 @@
 # route-boi
 
 A small and easy-to-use routing library for React, inspired by React Router DOM.
-Built from scratch to help you understand how client-side routing really works under the hood.
+Built from scratch to  understand how client-side routing really works under the hood.
 
 ## Features
 
